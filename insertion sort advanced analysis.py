@@ -1,20 +1,26 @@
-def insort(n, arr):
-    if arr == sorted(arr):
-        return 0
-    count=0;ar =arr
-    for i in range(1,n):
-        if ar != sorted(arr):
-            ar = sorted(arr[:i])
-            print(ar)
-            count+=1
-        else:
+def insertionsort(a,m):
+    count=0
+    for i in range(m):
+        if a == sorted(a):
             break
-    print(arr)
-    return count
+        while(i>0):
+            if a[i] < a[i-1]:
+                a[i],a[i-1] = a[i-1],a[i]
+                count+=1;i-=1
+            else:
+                break
+    print(count)
 
-if __name__ == "__main__":
-    for i in range(int(input())):
-        n = int(input().strip())
-        arr = list(map(int, input().strip().split(' ')))
-        result = insort(n, arr)
-        print(result)
+
+    
+def solve():
+    for _ in range(int(input())):
+        m = int(input())
+        a = list(map(int,input().split()))
+        if a == sorted(a):
+            print("0")
+        else:
+            insertionsort(a,m)
+        
+
+solve()

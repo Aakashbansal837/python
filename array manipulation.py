@@ -1,11 +1,14 @@
-k,m=map(int,input().split())
-arr=[0]*(k)
-max_num = 0
-for i in range(m):
-    a,b,c = map(int,input().split())
-    for j in range(a-1,b):
-        arr[j] += c
-    max_num +=c
-    print("arr:",arr)
-result = (max(arr))*max_num;
-print(result)
+n, inputs = [int(x) for x in input().split()]
+l = [0]*(n+1)
+for _ in range(inputs):
+    x, y, incr = [int(n) for n in input().split()]
+    l[x-1] += incr
+    print("After x:",l)
+    if((y)<=len(l)):
+        l[y] -= incr;
+    print("after y:",l)
+maxx = x = 0
+for i in l:
+   x=x+i;
+   if(maxx<x): maxx=x;
+print(maxx)
